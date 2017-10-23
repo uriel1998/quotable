@@ -14,7 +14,7 @@ TempDir=$(mktemp -d)
 # Wherein things get told to happen
 ################################################################################
 main() {
-	curl https://unsplash.it/1024/512/?random -o $TempDir/unsplash.jpg
+	bob=`wget https://picsum.photos/1024/512/?random -O $TempDir/unsplash.jpg`
 	convert $TempDir/unsplash.jpg -blur 0x3 $TempDir/unsplash_blur.jpg
 	Fortune=$(fortune twitter)
 	convert -background none -fill white -stroke black -strokewidth 3 -gravity Center -font Interstate -size 1024x512 \
